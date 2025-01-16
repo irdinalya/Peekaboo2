@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './Header.css';
 
-function Header({ onCategoryChange, navigateToPage, user, onAuth, onLogout }) {
+    function Header({ onCategoryChange, navigateToPage, user, onAuth, onLogout, onSearch}) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
-    const [isAuthModalVisible, setIsAuthModalVisible] = useState(false);
-    const [authMode, setAuthMode] = useState('login');
+    const [searchQuery, setSearchQuery] = useState('');
 
-    const categories = ['All', 'Barbie', 'Hot Wheels', 'Lego', 'Toy Stuff'];
+    const categories = ['All', 'Barbie', 'Hot Wheels', 'Lego', 'Toy Stuff', 'Squishy', 'Board Game', 'Action Figure', 'Educational Toy'];
 
     const toggleDropdown = () => {
         setDropdownVisible(!dropdownVisible);
@@ -18,19 +17,28 @@ function Header({ onCategoryChange, navigateToPage, user, onAuth, onLogout }) {
         navigateToPage('products');
     };
 
-    const openAuthModal = (mode) => {
-        setAuthMode(mode);
-        setIsAuthModalVisible(true);
-    };
-
-    const closeAuthModal = () => {
-        setIsAuthModalVisible(false);
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        onSearch(searchQuery);
     };
 
     return (
         <header className="App-header">
-            <h1 onClick={() => navigateToPage('home')}>Peekaboo Toy Shop</h1>
+            <div className="logo" onClick={() => navigateToPage('home')}>
+                <img src="/images/logo.jpg" alt="Peekaboo Toy Shop Logo" className="logo-image"/>
+            </div>
+
             <div className="header-buttons">
+                <form className="search-form" onSubmit={handleSearchSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="search-input"
+                    />
+                    <button type="submit" className="header-btn">Search</button>
+                </form>
                 <div className="dropdown">
                     <button className="header-btn" onClick={toggleDropdown}>Categories</button>
                     {dropdownVisible && (
@@ -45,38 +53,19 @@ function Header({ onCategoryChange, navigateToPage, user, onAuth, onLogout }) {
                 </div>
                 {user ? (
                     <>
+                        <button className="header-btn" onClick={() => navigateToPage('wishlist')}>Wishlist</button>
                         <button className="header-btn" onClick={() => navigateToPage('account')}>My Account</button>
                         <button className="header-btn" onClick={onLogout}>Logout</button>
                     </>
                 ) : (
                     <>
-                        <button className="header-btn" onClick={() => openAuthModal('login')}>Login</button>
-                        <button className="header-btn" onClick={() => openAuthModal('signup')}>Sign Up</button>
+                        <button className="header-btn" onClick={() => navigateToPage('wishlist')}>Wishlist</button>
+                        <button className="header-btn" onClick={() => navigateToPage('cart')}>Cart</button>
+                        <button className="header-btn" onClick={() => navigateToPage('login')}>Login</button>
+                        <button className="header-btn" onClick={() => navigateToPage('signup')}>Sign Up</button>
                     </>
                 )}
-                <button className="header-btn" onClick={() => navigateToPage('cart')}>Cart</button>
             </div>
-
-            {isAuthModalVisible && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <h2>{authMode === 'login' ? 'Login' : 'Sign Up'}</h2>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            const username = e.target.username.value;
-                            const email = e.target.email?.value || null;
-                            closeAuthModal();
-                            onAuth(username, email);
-                        }}>
-                            <input type="text" name="username" placeholder="Username" required />
-                            {authMode === 'signup' && <input type="email" name="email" placeholder="Email" required />}
-                            <input type="password" name="password" placeholder="Password" required />
-                            <button type="submit" className="modal-btn">Submit</button>
-                        </form>
-                        <button className="modal-btn" onClick={closeAuthModal}>Close</button>
-                    </div>
-                </div>
-            )}
         </header>
     );
 }

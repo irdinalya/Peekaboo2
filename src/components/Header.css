@@ -1,10 +1,25 @@
 .App-header {
-    background-color: #282c34;
-    padding: 20px;
-    color: white;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: slateblue;
+    color:white;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 50px; /* Adjust size as needed */
+    width: auto;
 }
 
 .header-buttons {

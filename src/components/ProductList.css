@@ -1,5 +1,10 @@
 .product-list {
+    padding: 100px;
+    display: flex;
+    gap: 20px;
     padding: 20px;
+    flex-direction: column;
+    align-content: center;
 }
 
 .product-list h2 {
@@ -35,6 +40,19 @@
     font-size: 0.9em;
 }
 
+.product-card .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-card .product-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
 .product-card button {
     margin-top: 10px;
     background-color: #007bff;
@@ -49,4 +67,12 @@
 
 .product-card button:hover {
     background-color: #0056b3;
+}
+
+.product-card .wishlist-btn {
+    background-color: #ffc107;
+}
+
+.product-card .wishlist-btn:hover {
+    background-color: #e0a800;
 }

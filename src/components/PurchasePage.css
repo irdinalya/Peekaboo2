@@ -1,0 +1,69 @@
+.purchase-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-page h2, .purchase-page h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.summary-table th, .summary-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.summary-table th {
+    background-color: #f4f4f4;
+    color: #555;
+}
+
+.purchase-page input, .purchase-page select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.confirm-btn, .purchase-page button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.confirm-btn:hover {
+    background-color: #0056b3;
+}
+
+.purchase-page p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #444;
+}
+
+.purchase-page p strong {
+    font-size: 1.2em;
+    color: #222;
+}

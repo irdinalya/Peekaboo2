@@ -11,12 +11,6 @@ public class PeekabooBackend {
         loadProducts();
     }
 
-    // Add a product
-    public void addProduct(int id, String name, double price, String category, String description) {
-        products.add(new Product(id, name, price, category, description));
-        saveProducts();
-    }
-
     // Display all products
     public void displayProducts() {
         for (Product product : products) {

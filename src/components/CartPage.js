@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartPage.css';
 
-function CartPage({ cart, onUpdateQuantity, onRemove }) {
+function CartPage({ cart, onUpdateQuantity, onRemove, navigateToPurchase }) {
     const handleQuantityChange = (productId, e) => {
         const newQuantity = parseInt(e.target.value, 10);
         onUpdateQuantity(productId, newQuantity);
@@ -13,37 +13,40 @@ function CartPage({ cart, onUpdateQuantity, onRemove }) {
             {cart.length === 0 ? (
                 <p>Your cart is empty.</p>
             ) : (
-                <table className="cart-table">
-                    <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {cart.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.name}</td>
-                            <td>${item.price.toFixed(2)}</td>
-                            <td>
-                                <input
-                                    type="number"
-                                    min="1"
-                                    value={item.quantity}
-                                    onChange={(e) => handleQuantityChange(item.id, e)}
-                                />
-                            </td>
-                            <td>${(item.price * item.quantity).toFixed(2)}</td>
-                            <td>
-                                <button onClick={() => onRemove(item.id)}>Remove</button>
-                            </td>
+                <>
+                    <table className="cart-table">
+                        <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Actions</th>
                         </tr>
-                    ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        {cart.map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.name}</td>
+                                <td>${item.price.toFixed(2)}</td>
+                                <td>
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        value={item.quantity}
+                                        onChange={(e) => handleQuantityChange(item.id, e)}
+                                    />
+                                </td>
+                                <td>${(item.price * item.quantity).toFixed(2)}</td>
+                                <td>
+                                    <button onClick={() => onRemove(item.id)}>Remove</button>
+                                </td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                    <button className="purchase-btn" onClick={navigateToPurchase}>Proceed to Purchase</button>
+                </>
             )}
         </div>
     );

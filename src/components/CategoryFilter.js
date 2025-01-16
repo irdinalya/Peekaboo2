@@ -1,7 +1,7 @@
 import React from 'react';
 
 function CategoryFilter({ onCategoryChange }) {
-    const categories = ['All', 'Barbie', 'Hot Wheels', 'Lego', 'Toy Stuff'];
+    const categories = ['All', 'Barbie', 'Hot Wheels', 'Lego', 'Toy Stuff', 'Squishy', 'Board Game', 'Action Figure', 'Educational Toy'];
 
     return (
         <div className="category-filter">
