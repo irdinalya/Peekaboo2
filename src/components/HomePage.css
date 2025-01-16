@@ -1,0 +1,31 @@
+.home-page {
+    padding: 20px;
+}
+
+.banner {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.trending, .best-sellers, .new-arrivals {
+    margin-bottom: 30px;
+}
+
+.product-showcase {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-showcase img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
