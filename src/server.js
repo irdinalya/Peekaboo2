@@ -53,9 +53,9 @@ app.post('/login', (req, res) => {
     const data = fs.readFileSync(USERS_FILE, 'utf8');
     const users = data.split('\n').slice(1); // Skip header
     const user = users.find((line) => {
-        const [username, savedEmail, savedPassword] = line.split(',');
+        const [username, email, savedPassword] = line.split(',');
         return (
-            (username?.trim() === identifier || email?.trim() === identifier) &&
+            (username?.trim() === username || email?.trim() === email) &&
             savedPassword?.trim() === password
         );
     });
