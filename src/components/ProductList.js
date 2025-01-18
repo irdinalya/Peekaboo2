@@ -3,11 +3,11 @@ import './ProductList.css';
 
 function ProductList({ selectedCategory, onAddToCart, onAddToWishlist }) {
     const products = [
-        { id: 1, name: "Ken Doll", price: 12.99, category: "Barbie", description: "A stylish Ken doll.", image: "images/ken_doll.jpg", reviews: "Great toy for kids!", rating: 4.5 },
-        { id: 2, name: "Barbie Dreamhouse", price: 99.99, category: "Barbie", description: "A luxurious Barbie dreamhouse.", image: "images/barbie_dreamhouse.jpg", reviews: "Perfect for Barbie fans.", rating: 4.8 },
-        { id: 3, name: "Race Car", price: 19.99, category: "Hot Wheels", description: "A sleek race car toy.", image: "images/race_car.jpg", reviews: "Awesome race car.", rating: 4.2 },
-        { id: 4, name: "Track Builder", price: 29.99, category: "Hot Wheels", description: "Build your own race track.", image: "images/track_builder.jpg", reviews: "Fun and creative.", rating: 4.7 },
-        { id: 5, name: "Lego Star Wars", price: 49.99, category: "Lego", description: "Build a Star Wars spaceship.", image: "images/lego_star_wars.jpg", reviews: "Fantastic Lego set.", rating: 4.9 },
+        { id: 1, name: "Ken Doll", price: 12.99, category: "Barbie", description: "A stylish Ken doll.", image: "/images/ken_doll.jpg", reviews: "Great toy for kids!", rating: 4.5 },
+        { id: 2, name: "Barbie Dreamhouse", price: 99.99, category: "Barbie", description: "A luxurious Barbie dreamhouse.", image: "/images/barbie_dreamhouse.jpg", reviews: "Perfect for Barbie fans.", rating: 4.8 },
+        { id: 3, name: "Race Car", price: 19.99, category: "Hot Wheels", description: "A sleek race car toy.", image: "/images/race_car.jpg", reviews: "Awesome race car.", rating: 4.2 },
+        { id: 4, name: "Track Builder", price: 29.99, category: "Hot Wheels", description: "Build your own race track.", image: "/images/track_builder.jpg", reviews: "Fun and creative.", rating: 4.7 },
+        { id: 5, name: "Lego Star Wars", price: 49.99, category: "Lego", description: "Build a Star Wars spaceship.", image: "/images/lego_star_wars.jpg", reviews: "Fantastic Lego set.", rating: 4.9 },
         { id: 6, name: "Lego Friends", price: 39.99, category: "Lego", description: "A colorful Lego friends set.", image: "images/lego_friends.jpg", reviews: "Kids love it!", rating: 4.6 },
         { id: 7, name: "Plush Bear", price: 19.99, category: "Toy Stuff", description: "A soft and cuddly plush bear.", image: "images/plush_bear.jpg", reviews: "So cuddly!", rating: 4.8 },
         { id: 8, name: "Stuffed Elephant", price: 14.99, category: "Toy Stuff", description: "A cute stuffed elephant.", image: "images/stuffed_elephant.jpg", reviews: "Adorable!", rating: 4.4 },
@@ -62,12 +62,12 @@ function ProductList({ selectedCategory, onAddToCart, onAddToWishlist }) {
 
     const ProductCard = ({ product }) => (
         <div className="product-card">
-            <img src={product.imageUrl} alt={product.name} className="product-image" />
+            <img src={product.image} alt={product.name} className="product-image"/>
             <h2>{product.name}</h2>
             <p>Price: RM{product.price}</p>
             <p>Description: {product.description}</p>
             <p>Rating: {product.rating} ⭐</p>
-            <p>Review: {product.review}</p>
+            <p>Review: {product.reviews}</p>
             <button className="add-to-cart" onClick={() => onAddToCart(product)}>Add to Cart</button>
             <button className="add-to-wishlist" onClick={() => onAddToWishlist(product)}>Add to Wishlist</button>
         </div>
@@ -75,11 +75,11 @@ function ProductList({ selectedCategory, onAddToCart, onAddToWishlist }) {
 
     return (
         <div className="product-list">
-            <h2>{selectedCategory} Products</h2>
+        <h2>{selectedCategory} Products</h2>
             <div className="products">
                 {filteredProducts.map(product => (
                     <div className="product-card" key={product.id}>
-                        <img src={`/images/${product.image}`} alt={product.name} className="product-image" />
+                        <img src={product.image} alt={product.name} className="product-image"/>
                         <h3>{product.name}</h3>
                         <p>{product.description}</p>
                         <p>Customer Review: {product.reviews}</p>
