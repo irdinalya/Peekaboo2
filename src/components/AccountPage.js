@@ -2,12 +2,21 @@ import React from 'react';
 import './AccountPage.css';
 
 function AccountPage({ user }) {
+    if (!user) {
+        return (
+            <div className="account-page">
+                <h2>Loading...</h2>
+            </div>
+        );
+    }
+
     return (
         <div className="account-page">
             <h2>Welcome, {user.username}</h2>
             <section>
                 <h3>Profile Information</h3>
                 <p>Username: {user.username}</p>
+                <p>Email: {user.email || 'Not available'}</p>
             </section>
             <section>
                 <h3>Purchase History</h3>
@@ -25,7 +34,7 @@ function AccountPage({ user }) {
             </section>
             <section>
                 <h3>Saved Addresses</h3>
-                <p>123 Main Street, Springfield</p>
+                <p>258 Jalan Ampang, Kuala Lumpur, 50450, Malaysia</p>
             </section>
         </div>
     );

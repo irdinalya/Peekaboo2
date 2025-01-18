@@ -17,7 +17,7 @@ function HomePage({ onAddToCart, onAddToWishlist }) {
                         <p>A stylish Ken doll.</p>
                         <p>Rating: 4.5 ⭐</p>
                         <p>Reviews: Great toy for kids!</p>
-                        <p>Price: $12.99</p>
+                        <p>Price: RM12.99</p>
                         <div className="product-actions">
                             <button onClick={() => onAddToCart({ id: 1, name: "Ken Doll", price: 12.99 })}>Add to Cart</button>
                             <button onClick={() => onAddToWishlist({ id: 1, name: "Ken Doll", price: 12.99 })}>Add to Wishlist</button>
@@ -29,7 +29,7 @@ function HomePage({ onAddToCart, onAddToWishlist }) {
                         <p>A sleek race car toy.</p>
                         <p>Rating: 4.2 ⭐</p>
                         <p>Reviews: Awesome race car.</p>
-                        <p>Price: $19.99</p>
+                        <p>Price: RM19.99</p>
                         <div className="product-actions">
                             <button onClick={() => onAddToCart({ id: 3, name: "Race Car", price: 19.99 })}>Add to Cart</button>
                             <button onClick={() => onAddToWishlist({ id: 3, name: "Race Car", price: 19.99 })}>Add to Wishlist</button>
@@ -46,7 +46,7 @@ function HomePage({ onAddToCart, onAddToWishlist }) {
                         <p>A luxurious Barbie dreamhouse.</p>
                         <p>Rating: 4.8 ⭐</p>
                         <p>Reviews: Perfect for Barbie fans.</p>
-                        <p>Price: $99.99</p>
+                        <p>Price: RM99.99</p>
                         <div className="product-actions">
                             <button onClick={() => onAddToCart({ id: 2, name: "Barbie Dreamhouse", price: 99.99 })}>Add to Cart</button>
                             <button onClick={() => onAddToWishlist({ id: 2, name: "Barbie Dreamhouse", price: 99.99 })}>Add to Wishlist</button>
@@ -58,7 +58,7 @@ function HomePage({ onAddToCart, onAddToWishlist }) {
                         <p>Build a Star Wars spaceship.</p>
                         <p>Rating: 4.9 ⭐</p>
                         <p>Reviews: Fantastic Lego set.</p>
-                        <p>Price: $49.99</p>
+                        <p>Price: RM49.99</p>
                         <div className="product-actions">
                             <button onClick={() => onAddToCart({ id: 5, name: "Lego Star Wars", price: 49.99 })}>Add to Cart</button>
                             <button onClick={() => onAddToWishlist({ id: 5, name: "Lego Star Wars", price: 49.99 })}>Add to Wishlist</button>
@@ -75,7 +75,7 @@ function HomePage({ onAddToCart, onAddToWishlist }) {
                         <p>A soft and cuddly plush bear.</p>
                         <p>Rating: 4.8 ⭐</p>
                         <p>Reviews: So cuddly!</p>
-                        <p>Price: $19.99</p>
+                        <p>Price: RM19.99</p>
                         <div className="product-actions">
                             <button onClick={() => onAddToCart({ id: 7, name: "Plush Bear", price: 19.99 })}>Add to Cart</button>
                             <button onClick={() => onAddToWishlist({ id: 7, name: "Plush Bear", price: 19.99 })}>Add to Wishlist</button>
@@ -87,7 +87,7 @@ function HomePage({ onAddToCart, onAddToWishlist }) {
                         <p>A cute stuffed elephant.</p>
                         <p>Rating: 4.4 ⭐</p>
                         <p>Reviews: Adorable!</p>
-                        <p>Price: $14.99</p>
+                        <p>Price: RM14.99</p>
                         <div className="product-actions">
                             <button onClick={() => onAddToCart({ id: 8, name: "Stuffed Elephant", price: 14.99 })}>Add to Cart</button>
                             <button onClick={() => onAddToWishlist({ id: 8, name: "Stuffed Elephant", price: 14.99 })}>Add to Wishlist</button>

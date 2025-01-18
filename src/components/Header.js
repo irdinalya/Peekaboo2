@@ -54,6 +54,7 @@ import './Header.css';
                 {user ? (
                     <>
                         <button className="header-btn" onClick={() => navigateToPage('wishlist')}>Wishlist</button>
+                        <button className="header-btn" onClick={() => navigateToPage('cart')}>Cart</button>
                         <button className="header-btn" onClick={() => navigateToPage('account')}>My Account</button>
                         <button className="header-btn" onClick={onLogout}>Logout</button>
                     </>

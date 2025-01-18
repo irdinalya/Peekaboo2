@@ -28,7 +28,7 @@ function CartPage({ cart, onUpdateQuantity, onRemove, navigateToPurchase }) {
                         {cart.map((item) => (
                             <tr key={item.id}>
                                 <td>{item.name}</td>
-                                <td>${item.price.toFixed(2)}</td>
+                                <td>RM{item.price.toFixed(2)}</td>
                                 <td>
                                     <input
                                         type="number"
@@ -37,7 +37,7 @@ function CartPage({ cart, onUpdateQuantity, onRemove, navigateToPurchase }) {
                                         onChange={(e) => handleQuantityChange(item.id, e)}
                                     />
                                 </td>
-                                <td>${(item.price * item.quantity).toFixed(2)}</td>
+                                <td>RM{(item.price * item.quantity).toFixed(2)}</td>
                                 <td>
                                     <button onClick={() => onRemove(item.id)}>Remove</button>
                                 </td>

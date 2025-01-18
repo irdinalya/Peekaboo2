@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 function LoginPage({ navigateToPage, onLogin }) {
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -10,12 +10,30 @@ function LoginPage({ navigateToPage, onLogin }) {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/login', { email, password });
-            setMessage(response.data.message);
-            onLogin(email); // Save the logged-in user information
-            navigateToPage('home');
+            console.log('Attempting login with:', username, email, password);
+            const response = await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, email, password }),
+            });
+
+            console.log('Login response status:', response.status);
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Login successful:', data);
+
+                setMessage(data.message); // Show success message
+                onLogin(data); // Save the logged-in user information
+                navigateToPage('home'); // Redirect to the home page
+            } else {
+                const errorData = await response.json();
+                setMessage(errorData.message || 'Login failed. Please try again.');
+            }
         } catch (error) {
-            setMessage(error.response?.data?.message || 'Login failed.');
+            setMessage('An error occurred. Please try again.');
         }
     };
 
@@ -23,6 +41,13 @@ function LoginPage({ navigateToPage, onLogin }) {
         <div>
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
+                <input
+                    type="username"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                />
                 <input
                     type="email"
                     placeholder="Email"
