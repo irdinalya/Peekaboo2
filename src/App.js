@@ -49,7 +49,7 @@ function App() {
 
     const addToWishlist = (product) => {
         setWishlist((prevWishlist) => {
-            if (!prevWishlist.find((item) => item.id === product.id)) {
+            if (!prevWishlist.some((item) => item.id === product.id)) {
                 return [...prevWishlist, product];
             }
             return prevWishlist;
