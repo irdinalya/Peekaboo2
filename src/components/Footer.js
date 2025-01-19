@@ -22,20 +22,25 @@ function Footer() {
                     </ul>
                 </div>
 
-                <div className="footer-section">
-                    <h3>Follow Us</h3>
-                    <div className="social-links">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                            <img src="/images/facebook-icon.png" alt="Facebook" />
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                            <img src="/images/instagram-icon.png" alt="Instagram" />
-                        </a>
-                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                            <img src="/images/twitter-icon.png" alt="Twitter" />
-                        </a>
-                    </div>
-                </div>
+                
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+
+<div class="footer-section text-center mt-4">
+    <h3>Follow Us</h3>
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="mx-2">
+            <i class="fab fa-facebook fa-3x"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="mx-2">
+            <i class="fab fa-instagram fa-3x"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="mx-2">
+            <i class="fab fa-twitter fa-3x"></i>
+        </a>
+    </div>
+</div>
+
             </div>
             <div className="footer-bottom">
                 <p>&copy; {new Date().getFullYear()} Peekaboo Toy Shop. All rights reserved.</p>

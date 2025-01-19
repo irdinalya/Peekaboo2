@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Import useEffect
+
 import './HomePage.css';
 
 function HomePage({ onAddToCart, onAddToWishlist }) {
+    useEffect(() => {
+        const video = document.getElementById("introVideo");
+        const videoOverlay = document.getElementById("video-overlay");
+
+        // Disable scrolling when the overlay is displayed
+        document.body.style.overflow = "hidden";
+
+        // Event listener to hide the overlay and re-enable scrolling
+        video.addEventListener("ended", () => {
+            videoOverlay.style.display = "none";
+            document.body.style.overflow = "auto"; // Re-enable scrolling
+        });
+
+        // Cleanup function
+        return () => {
+            document.body.style.overflow = "auto"; // Ensure scrolling is re-enabled
+        };
+    }, []);
     return (
         <div className="home-page">
-            <section className="banner">
-                <img src="/images/banner.jpg" alt="Exciting Deals" className="banner-image" />
-                <h2>Don't Miss Our Exclusive Sales!</h2>
-            </section>
+            <div id="video-overlay">
+                <video id="introVideo" autoPlay muted playsInline>
+                    <source src="video/intro.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+<section className="banner">
+    <video className="banner-video" autoPlay muted loop playsInline>
+        <source src="/video/video2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+    <img src="/images/malaysia1.jpg" alt="Malaysia" className="overlay-image" />
+
+    
+</section>
+
+            <div className="home-page2">
             <section className="trending">
                 <h3>Trending Now</h3>
                 <div className="product-showcase">
@@ -95,8 +127,14 @@ function HomePage({ onAddToCart, onAddToWishlist }) {
                     </div>
                 </div>
             </section>
+            </div>
         </div>
     );
 }
 
 export default HomePage;
+
+
+
+
+

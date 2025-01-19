@@ -1,0 +1,71 @@
+/* Container styling */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 20px;
+}
+
+/* Sign-up card styling */
+.signup-card {
+    background-color: #ffffff; /* White card background */
+    border: 2px solid #f1088c; /* Green border */
+    border-radius: 10px;
+    padding:  3rem 3rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Sign-up image */
+.signup-image {
+    max-width: 20rem; /* Restrict image size */
+    margin-bottom: 20px;
+    border-radius: 50%; /* Circular image */
+}
+
+/* Input fields */
+.signup-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.signup-input:focus {
+    border-color: #28a745; /* Green border on focus */
+    outline: none;
+}
+
+/* Button styling */
+.signup-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signup-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.02); /* Slight enlargement */
+}
+
+/* Message styling */
+.signup-message {
+    color: #d9534f; /* Red color for error messages */
+    font-size: 0.9rem;
+    margin-top: 10px;
+}

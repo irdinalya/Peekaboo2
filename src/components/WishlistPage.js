@@ -6,17 +6,23 @@ function WishlistPage({ wishlist, onRemove }) {
         <div className="wishlist-page">
             <h2>Your Wishlist</h2>
             {wishlist.length === 0 ? (
-                <p>Your wishlist is empty.</p>
+                <p className="empty-wishlist">Your wishlist is empty.</p>
             ) : (
                 <ul className="wishlist-list">
                     {wishlist.map((item) => (
                         <li key={item.id} className="wishlist-item">
-                            <img src={`/images/${item.image}`} alt={item.name} className="wishlist-image" />
+                            <img
+                                src={`/images/${item.image}`}
+                                alt={item.name}
+                                className="wishlist-image"
+                            />
                             <div className="wishlist-details">
                                 <h3>{item.name}</h3>
                                 <p>{item.description}</p>
-                                <p>Price: ${item.price.toFixed(2)}</p>
-                                <button onClick={() => onRemove(item.id)}>Remove</button>
+                                <p className="wishlist-price">Price: ${item.price.toFixed(2)}</p>
+                                <button onClick={() => onRemove(item.id)} className="remove-button">
+                                    Remove
+                                </button>
                             </div>
                         </li>
                     ))}

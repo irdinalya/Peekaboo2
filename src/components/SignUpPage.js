@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
+import "./SignUpPage.css";
 
 function SignUpPage({ navigateToPage }) {
     const [username, setUsername] = useState('');
@@ -26,33 +27,39 @@ function SignUpPage({ navigateToPage }) {
     };
 
     return (
-        <div>
-            <h2>Sign Up</h2>
-            <form onSubmit={handleSignUp}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Sign Up</button>
-            </form>
-            <p>{message}</p>
+        <div className="signup-container">
+            <div className="signup-card">
+                <img src="/images/logo.jpg" alt="Sign Up Illustration" className="signup-image" />
+                <h2>Sign Up</h2>
+                <form onSubmit={handleSignUp}>
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                        className="signup-input"
+                    />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="signup-input"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        className="signup-input"
+                    />
+                    <button type="submit" className="signup-button">Sign Up</button>
+                </form>
+                <p className="signup-message">{message}</p>
+            </div>
         </div>
     );
 }
