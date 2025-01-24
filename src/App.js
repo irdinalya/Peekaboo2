@@ -23,6 +23,7 @@ function App() {
 
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
+        setCurrentPage('products');
     };
 
     const navigateToPage = (page) => {
@@ -30,8 +31,8 @@ function App() {
     };
 
     const onLogout = () => {
-        setUser(null); // Clear the user state
-        navigateToPage('home'); 
+        setUser(null);
+        navigateToPage('home');
     };
 
     const addToCart = (product) => {
@@ -58,9 +59,11 @@ function App() {
 
     const updateCartQuantity = (productId, quantity) => {
         setCart((prevCart) =>
-            prevCart.map((item) =>
-                item.id === productId ? { ...item, quantity } : item
-            ).filter((item) => item.quantity > 0)
+            prevCart
+                .map((item) =>
+                    item.id === productId ? { ...item, quantity } : item
+                )
+                .filter((item) => item.quantity > 0)
         );
     };
 
@@ -69,7 +72,9 @@ function App() {
     };
 
     const removeFromWishlist = (productId) => {
-        setWishlist((prevWishlist) => prevWishlist.filter((item) => item.id !== productId));
+        setWishlist((prevWishlist) =>
+            prevWishlist.filter((item) => item.id !== productId)
+        );
     };
 
     const clearCart = () => {
@@ -94,20 +99,19 @@ function App() {
                 onLogout={onLogout}
                 onSearch={handleSearch}
             />
+
             {currentPage === 'home' && <HomePage onAddToCart={addToCart} onAddToWishlist={addToWishlist} />}
             {currentPage === 'products' && <ProductList selectedCategory={selectedCategory} onAddToCart={addToCart} onAddToWishlist={addToWishlist} />}
-            {currentPage === 'login' && (
+            {currentPage === 'login' && !user && (
                 <LoginPage
                     navigateToPage={navigateToPage}
                     onLogin={(userInfo) => {
-                        console.log('User Info:', userInfo);
-                        // Assuming login is successful, set the user state and navigate to account page
-                        setUser(userInfo); // Save username and email
+                        setUser(userInfo);
                         navigateToPage('account');
                     }}
                 />
             )}
-            {currentPage === 'signup' && <SignUpPage navigateToPage={navigateToPage} />}
+            {currentPage === 'signup' && !user && <SignUpPage navigateToPage={navigateToPage} />}
             {currentPage === 'account' && user && <AccountPage user={user} />}
             {currentPage === 'cart' && <CartPage cart={cart} onUpdateQuantity={updateCartQuantity} onRemove={removeFromCart} navigateToPurchase={() => navigateToPage('purchase')} />}
             {currentPage === 'purchase' && <PurchasePage cart={cart} clearCart={clearCart} />}
@@ -116,8 +120,6 @@ function App() {
 
             <Footer />
         </div>
-
-
     );
 }
 

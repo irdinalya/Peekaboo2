@@ -17,10 +17,12 @@ function SignUpPage({ navigateToPage }) {
                 email,
                 password,
             });
+
             setMessage(response.data.message);
             setUsername('');
             setEmail('');
             setPassword('');
+            navigateToPage('login'); // Redirect to login after successful sign-up
         } catch (error) {
             setMessage(error.response?.data?.message || 'Sign-up failed. Please try again.');
         }
@@ -28,38 +30,13 @@ function SignUpPage({ navigateToPage }) {
 
     return (
         <div className="signup-container">
-            <div className="signup-card">
-                <img src="/images/logo.jpg" alt="Sign Up Illustration" className="signup-image" />
-                <h2>Sign Up</h2>
-                <form onSubmit={handleSignUp}>
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                        className="signup-input"
-                    />
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="signup-input"
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                        className="signup-input"
-                    />
-                    <button type="submit" className="signup-button">Sign Up</button>
-                </form>
-                <p className="signup-message">{message}</p>
-            </div>
+            <form onSubmit={handleSignUp}>
+                <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>{message}</p>
         </div>
     );
 }
